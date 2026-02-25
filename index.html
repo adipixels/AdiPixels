@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdiPixels - Premium 4K Wallpapers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="openSecretAdmin()">
+            <h2>Adi<span>Pixels</span></h2>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="🔍 Search AMOLED, Cars, Nature...">
+        </div>
+    </nav>
+
+    <div id="admin-panel" class="glass-panel" style="display:none;">
+        <h3>☁️ Cloud Uploader</h3>
+        <p style="color:#94a3b8; font-size:12px; margin-bottom:10px;">Upload direct from gallery to AdiPixels Cloud</p>
+        
+        <input type="file" id="image-upload" accept="image/*" style="width: 100%; margin-bottom: 15px; color: white;">
+        
+        <button onclick="uploadToCloud()" class="glow-btn">🚀 Upload to PixNova</button>
+        <button onclick="clearCustomWallpapers()" class="glow-btn" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); margin-top: 10px;">🗑️ Delete All My Photos</button>
+        
+        <p id="upload-status" style="color: #cbd5e1; font-size: 13px; margin-top: 10px; display: none; font-weight: bold;">Uploading... Please wait ⏳</p>
+    </div>
+
+    <div class="tags-container">
+        <span class="tag-label">Popular:</span>
+        <button class="tag">Dark</button>
+        <button class="tag">AMOLED</button>
+        <button class="tag">Cars</button>
+        <button class="tag">Cyberpunk</button>
+        <button class="tag">Space</button>
+        <button class="tag">Anime</button>
+    </div>
+
+    <main class="gallery-container">
+        <div class="masonry-grid" id="image-grid"></div>
+        <div id="loader" class="loader-container">
+            <div class="spinner"></div>
+            <p>Fetching 4K Masterpieces...</p>
+        </div>
+    </main>
+
+    <div id="download-modal" class="modal">
+        <div class="modal-glass-card">
+            <span class="close-btn" onclick="closeModal()">✖</span>
+            <h3 class="modal-title">✨ Get This Masterpiece</h3>
+            
+            <div class="modal-actions">
+                <button class="glow-btn large-btn" id="btn-original">
+                    <span>🔥</span> Download Original Quality
+                </button>
+                
+                <div class="resize-box">
+                    <p>Custom Size (px):</p>
+                    <div class="resize-inputs">
+                        <input type="number" id="resize-w" placeholder="Width">
+                        <span class="multiply-sign">✖</span>
+                        <input type="number" id="resize-h" placeholder="Height">
+                        <button class="icon-btn" onclick="downloadCustomSize()">⬇️</button>
+                    </div>
+                </div>
+
+                <button class="smart-btn large-btn" id="btn-screen-download">
+                    📱 Perfect Fit For Your Screen <br>
+                    <small id="my-screen-res" style="color:#cbd5e1; font-weight:normal;">1080x2400px</small>
+                </button>
+            </div>
+            
+            <p class="license-text">Powered by AdiPixels Cloud Engine.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
