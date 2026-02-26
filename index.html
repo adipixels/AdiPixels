@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="style.css">
         <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
-<meta name="description" content="AdiPixels - Download Premium 4K, AMOLED, and Custom Wallpapers for free. High quality background images for your phone.">
-<meta name="keywords" content="AdiPixels, adipixels189, 4K wallpapers, AMOLED wallpapers, HD backgrounds, phone wallpapers">
 
-<meta name="google-site-verification" content="fZwGT-hq1h80Z_KN46QPPakhStF9F_geRxz_t1Wg2K0" />
 </head>
 <body>
 
@@ -26,15 +23,18 @@
 
     <div id="admin-panel" class="glass-panel" style="display:none;">
         <h3>☁️ Cloud Uploader</h3>
-        <p style="color:#94a3b8; font-size:12px; margin-bottom:10px;">Upload direct from gallery to AdiPixels Cloud</p>
+        <p style="color:#94a3b8; font-size:12px; margin-bottom:10px;">Upload direct from gallery</p>
         
         <input type="file" id="image-upload" accept="image/*" multiple style="width: 100%; margin-bottom: 15px; color: white;">
         
-        <button onclick="uploadToCloud()" class="glow-btn">🚀 Upload to AdiPixels</button>
-        <button onclick="clearCustomWallpapers()" class="glow-btn" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); margin-top: 10px;">🗑️ Delete All My Photos</button>
-        
+        <button onclick="uploadToCloud()" class="glow-btn">🚀 Upload</button>
         <p id="upload-status" style="color: #cbd5e1; font-size: 13px; margin-top: 10px; display: none; font-weight: bold;">Uploading... Please wait ⏳</p>
+
+        <h4 style="margin-top: 20px; color: #f97316; font-size: 14px; text-align: left;">🛠️ Manage My Uploads</h4>
+        <div id="admin-gallery" style="display: flex; gap: 10px; overflow-x: auto; margin-top: 10px; padding-bottom: 10px;">
+            </div>
     </div>
+
 
     <div class="tags-container">
         <span class="tag-label">Popular:</span>
