@@ -2,7 +2,6 @@
 // 1. MASTER API KEYS 🔥
 // ==========================================
 const PEXELS_API_KEY = 'UxQv14FQkZKYn7KXFy9L1sM0Cf2ri5dCbDAzq8ODhhGhTjcChO9tKiGv'; 
-const UNSPLASH_API_KEY = 'XHxACtjS2cDy-N6u-6re40OR2HN0de6YjPY1ZqAm1sE'; 
 const IMGBB_API_KEY = '09c18550e5cf82654630cbcc1c17d076'; 
 
 const imageGrid = document.getElementById('image-grid');
@@ -29,6 +28,7 @@ function openSecretAdmin() {
     }
 }
 
+// Mini Gallery Banane ka Engine
 function renderAdminGallery() {
     const adminGallery = document.getElementById('admin-gallery');
     adminGallery.innerHTML = '';
@@ -49,16 +49,18 @@ function renderAdminGallery() {
     });
 }
 
+// Sirf 1 Photo Delete Karne Wala Engine
 function deleteSingleWallpaper(index) {
     if(confirm("Kya tum sirf is photo ko delete karna chahte ho?")) {
         customWallpapers.splice(index, 1); 
         localStorage.setItem('myCustomWalls', JSON.stringify(customWallpapers)); 
         renderAdminGallery(); 
-        alert("Photo Delete ho gayi!");
+        alert("Photo Delete ho gayi! 🗑️");
         location.reload(); 
     }
 }
 
+// Bulk Upload Engine
 async function uploadToCloud() {
     const fileInput = document.getElementById('image-upload');
     const statusText = document.getElementById('upload-status');
@@ -92,7 +94,7 @@ async function uploadToCloud() {
         customWallpapers = [...successfulUrls.reverse(), ...customWallpapers];
         localStorage.setItem('myCustomWalls', JSON.stringify(customWallpapers));
         statusText.innerText = `✅ ${successfulUrls.length} Photos Uploaded! 🎉`;
-        location.reload(); 
+        location.reload(); // Code khud reload karega, tum mat karna!
     } else {
         statusText.innerText = "Upload failed! ❌ Network check karo.";
     }
@@ -125,7 +127,7 @@ async function fetchWallpapers(page, query = '') {
     isFetching = true; loader.style.display = 'block'; 
 
     try {
-        // 🚀 BUG FIX: Ab jab bhi grid khali hoga (website khulte hi), sabse pehle tumhari photos aayengi
+        // VIP ENTRY: Website khulte hi sabse pehle tumhari photos top par aayengi
         if(imageGrid.innerHTML === '' && customWallpapers.length > 0) {
             customWallpapers.forEach(url => {
                 if(!seenImages.has(url)) {
@@ -152,6 +154,7 @@ async function fetchWallpapers(page, query = '') {
         let mixedPhotos = [...pexelsData];
         mixedPhotos.sort(() => Math.random() - 0.5); 
 
+        // SMART FILTER: Duplicate photos ko rokna
         mixedPhotos.forEach(photo => {
             if (!seenImages.has(photo.original)) {
                 seenImages.add(photo.original); 
