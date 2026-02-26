@@ -3,6 +3,7 @@
 // ==========================================
 const PEXELS_API_KEY = 'UxQv14FQkZKYn7KXFy9L1sM0Cf2ri5dCbDAzq8ODhhGhTjcChO9tKiGv'; 
 const IMGBB_API_KEY = '09c18550e5cf82654630cbcc1c17d076'; 
+const UNSPLASH_API_KEY='XHxACtjS2cDy-N6u-6re40OR2HN0de6YjPY1ZqAm1sE';
 
 const imageGrid = document.getElementById('image-grid');
 const loader = document.getElementById('loader');
